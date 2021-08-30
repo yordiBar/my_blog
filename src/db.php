@@ -1,6 +1,0 @@
-<!-- Database connection -->
-<?php
-
-
-
-?>
