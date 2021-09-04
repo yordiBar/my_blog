@@ -1,7 +1,13 @@
 <?php
     include('../partials/header.php');
 
-    $query = "SELECT * FROM posts";
+    if(isset($_GET['category'])) {
+        $category = mysqli_real_escape_string($db, $_GET['category']);
+        $query = "SELECT * FROM posts where category = '$category'";
+    }else {
+        $query = "SELECT * FROM posts";
+    }
+
     $posts = $db->query($query);
 ?>
                 <div class="blog-header">
