@@ -64,20 +64,26 @@
                     <br>
                     <br>
                     <br>
+
+                    <?php while($comment = $comments->fetch_assoc()) {
+                        if($comment['is_admin'] != 1){
+                    ?>
                     <div class="comment">
                         <div class="comment-head">
-                            <a href="#">Anonymous</a>
+                            <a href="#"><?php echo $comment['name']; ?></a>
                             <img src="/images/placeholder.jpg" alt="" />                            
                         </div>
-                        This is a comment by Anonymous.
+                        <?php echo $comment['comment']; ?>
                     </div>
+                    <?php }else { ?>
                     <div class="comment">
                         <div class="comment-head">
-                            <a href="#">Anonymous 2</a><button class="btn btn-info btn-xs">Admin</button>
+                            <a href="#"><?php echo $comment['name']; ?></a><button class="btn btn-info btn-xs">Admin</button>
                             <img src="/images/placeholder.jpg" alt="" />                            
                         </div>
-                        This is a comment by Anonymous 2.
+                        <?php echo $comment['comment']; ?>
                     </div>
+                    <?php } } ?>
                     </div>
                 </div><!-- /.blog-main -->
             
