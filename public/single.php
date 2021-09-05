@@ -24,6 +24,9 @@
         exit();
     }
 
+    $query = "SELECT * FROM comments WHERE post_id='$id' AND status='1'";
+    $comments = $db->query($query);
+
 ?>
                 <br>
                 <?php if($posts->num_rows > 0) {
@@ -39,7 +42,7 @@
                 </div><!-- /.blog-post -->
                 <?php } } ?>
 
-                <blockquote>2 Comments</blockquote>
+                <blockquote><?php echo $comments->num_rows; ?> Comments</blockquote>
                 <div class="comment-area">
                     <form method="post">
                         <div class="form-group">
