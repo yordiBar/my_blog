@@ -18,11 +18,10 @@
         }
 
         $query = "INSERT INTO comments (name,comment,post_id,website) VALUES ('$name','$comment','$id','$website')";
-        if($db->query($query)){
-            echo "<script>alert('Comment sent!')</script>";
-        }else {
-            echo "<script>alert('Error sending comment!')</script>";
-        }
+        
+        $db->query($query);
+        header("Location:single.php?post=$id");
+        exit();
     }
 
 ?>
