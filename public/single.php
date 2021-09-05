@@ -5,8 +5,25 @@
         $id = mysqli_real_escape_string($db, $_GET['post']);
         $query = "SELECT * FROM posts where id = '$id'";
     }
-
     $posts = $db->query($query);
+
+    if(isset($_POST['post_comment'])){
+        $name = mysqli_real_escape_string($db, $_POST['name']);
+        $comment = mysqli_real_escape_string($db, $_POST['comment']);
+
+        if(isset($_POST['website'])){
+            $website = mysqli_real_escape_string($db, $_POST['website']);
+        }else {
+            $website = "";
+        }
+
+        $query = "INSERT INTO comments (name,comment,post_id,website) VALUES ('$name','$comment','$id','$website')";
+        if($db->query($query)){
+            echo "<script>alert('Comment sent!')</script>";
+        }else {
+            echo "<script>alert('Error sending comment!')</script>";
+        }
+    }
 
 ?>
                 <br>
@@ -25,7 +42,7 @@
 
                 <blockquote>2 Comments</blockquote>
                 <div class="comment-area">
-                    <form>
+                    <form method="post">
                         <div class="form-group">
                             <label for="inputEmail4" class="form-label">Name</label>
                             <input type="text" name="name" class="form-control" placeholder="Name">
