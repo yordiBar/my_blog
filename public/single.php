@@ -1,4 +1,18 @@
 <?php
+
+    include('../includes/config.php');
+    include('../includes/db.php');
+
+    if(isset($_GET['post'])) {
+        $post = mysqli_escape_string($db,$_GET['post']);
+
+        $po = $db->query("SELECT * FROM posts WHERE id='$post'");
+
+        $p = $po->fetch_assoc();
+
+        $page_title = $p['title'];
+    }
+
     include('../partials/header.php');
 
     if(isset($_GET['post'])) {

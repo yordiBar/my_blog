@@ -8,5 +8,6 @@
     define("DB_NAME", "my_blog_php");
 
     $about_text = "This is my Blog. I will write whatever comes to my mind...";
+    $page_title = "Home | Bart's Blog";
 
 ?>

@@ -1,4 +1,18 @@
 <?php
+
+    include('../includes/config.php');
+    include('../includes/db.php');
+
+    if(isset($_GET['category'])) {
+        $category = mysqli_escape_string($db,$_GET['category']);
+
+        $cat = $db->query("SELECT * FROM categories WHERE id='$category'");
+
+        $c = $cat->fetch_assoc();
+
+        $page_title = $c['text'] . " posts...";
+    }
+
     include('../partials/header.php');
 
     if(isset($_GET['category'])) {

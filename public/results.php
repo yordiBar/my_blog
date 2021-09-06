@@ -1,4 +1,12 @@
 <?php
+
+    include('../includes/config.php');
+    include('../includes/db.php');
+
+    if(isset($_GET['search'])) {
+        $page_title = "Search results for \"". $_GET['search'] . "\"";
+    }
+
     include('../partials/header.php');
 
     if(isset($_GET['search'])) {

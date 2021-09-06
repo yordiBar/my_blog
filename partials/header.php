@@ -1,8 +1,5 @@
 <?php
 
-    include('../includes/config.php');
-    include('../includes/db.php');
-
     $query = "SELECT * FROM categories";
     $categories = $db->query($query);
 
@@ -17,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Blog</title>
+    <title><?php echo $page_title; ?></title>
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.css" rel="stylesheet">
