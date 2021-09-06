@@ -29,8 +29,8 @@
     <div class="blog-masthead">
         <div class="container">
             <nav class="blog-nav">
-                <?php if(isset($_GET['category'])) { ?>
-                <a class="blog-nav-item" href="index.php">Home</a>
+                <?php if(isset($_GET['category']) || strpos($_SERVER['REQUEST_URI'],"index.php") === false ) { ?>
+                    <a class="blog-nav-item" href="index.php">Home</a>
                 <?php }else { ?>
                     <a class="blog-nav-item active" href="index.php">Home</a>
                 <?php } ?>
