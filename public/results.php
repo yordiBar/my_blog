@@ -14,7 +14,7 @@
         $query = "SELECT * FROM posts where keywords LIKE '%$keyword%'";
         $posts = $db->query($query);
     }else {
-        echo "<p>No result...</p>";
+        echo "<p>No results...</p>";
     }
 ?>
                 <br>
@@ -34,7 +34,9 @@
                     
                     <a href="single.php?post=<?php echo $row['id'] ?>" class="btn btn-primary">Read More</a>
                 </div><!-- /.blog-post -->
-                <?php } } ?>
+                <?php } } else{
+                    echo "<p>No results...</p>";
+                }?>
 
             </div><!-- /.blog-main -->
             

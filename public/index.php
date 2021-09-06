@@ -42,7 +42,9 @@
                     
                     <a href="single.php?post=<?php echo $row['id'] ?>" class="btn btn-primary">Read More</a>
                 </div><!-- /.blog-post -->
-                <?php } } ?>
+                <?php } } else{
+                    echo "<p>No results...</p>"; 
+                }?>
 
             </div><!-- /.blog-main -->
             
